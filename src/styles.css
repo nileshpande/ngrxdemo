@@ -1,0 +1,91 @@
+/* Add application styles & imports to this file! */
+body {
+  font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
+  background-color: #262626;
+  color: #f4f4f4;
+  padding: 1em 1em 80em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 2.625rem;
+  font-weight: 300;
+  line-height: 1.199;
+  letter-spacing: 0;
+}
+h1 {
+  margin-top: 1em; /*4em*/
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.svelte:hover {
+  filter: drop-shadow(0 0 2em #ff3e00aa);
+}
+.logo.angular {
+  height: 6.8em;
+  margin-bottom: -4px;
+}
+.logo.angular:hover {
+  filter: drop-shadow(0 0 2em #ff0010aa);
+}
+.logo.stateadapt:hover {
+  filter: drop-shadow(0 0 2em #00ced1aa);
+}
+
+button {
+  border: 1px solid transparent;
+  background-color: #00ced1;
+  font-weight: 400;
+  line-height: 1.28572;
+  letter-spacing: 0.16px;
+  position: relative;
+  display: inline-flex;
+  max-width: 20rem;
+  min-height: 3rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(0.875rem - 3px) 63px calc(0.875rem - 3px) 15px;
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  text-decoration: none;
+  transition: background 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    box-shadow 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    border-color 70ms cubic-bezier(0, 0, 0.38, 0.9),
+    outline 70ms cubic-bezier(0, 0, 0.38, 0.9);
+  vertical-align: top;
+}
+
+button:hover {
+  background-color: #00b9bc;
+}
+button:focus {
+  border-color: #fff;
+}
+button:active {
+  background-color: #009092;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
