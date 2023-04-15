@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddtodoComponent } from './addtodo/addtodo.component';
 import { TodolistComponent } from './todolist/todolist.component';
-import { FormsModule } from '@angular/forms';
-import { IonicStorageModule } from '@ionic/storage-angular';
+import { FormsModule } from '@angular/forms'; 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -23,8 +22,7 @@ import { todoReducer } from './ngrx/todo/todo.reducers';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    IonicStorageModule.forRoot(),
+    FormsModule, 
     StoreModule.forRoot({ todos: todoReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -22,6 +22,9 @@ export class TodoEffects {
     private todoService: TodoService
   ) {}
 
+
+  //old code
+
   // Run this code when a loadTodos action is dispatched
   loadTodos$ = createEffect(() =>
     this.actions$.pipe(
