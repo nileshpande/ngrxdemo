@@ -12,15 +12,21 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { TodoEffects } from './ngrx/todo/todo.effects';
 import { todoReducer } from './ngrx/todo/todo.reducers';
+import { QrcodeComponent } from './qrcode/qrcode.component';
+
+
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddtodoComponent,
-    TodolistComponent
+    TodolistComponent,
+    QrcodeComponent
   ],
   imports: [
     BrowserModule,
+    NgxQRCodeModule,
     AppRoutingModule,
     FormsModule, 
     StoreModule.forRoot({ todos: todoReducer }),

@@ -1,0 +1,15 @@
+<!-- <div>
+  <p>Scan this QR code to make a UPI payment:</p>
+  <qrcode [value]="upiPaymentDetails"></qrcode>
+</div> -->
+
+<div style="width:100%;display:flex;align-items:center;justify-content:center;height:100vh;">
+    <label for="amount">Enter Amount</label>
+    <input type="text" id="amount" name="amount"  [(ngModel)]="amountnumber" />
+    <ngx-qrcode 
+  [elementType]="elementType" 
+  [value]="upiPaymentDetails+amount+amountnumber+currency"
+  cssClass="aclass" >
+</ngx-qrcode>
+
+</div>
