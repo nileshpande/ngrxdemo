@@ -6,3 +6,20 @@
     <app-addtodo></app-addtodo>
   </div>
 </div>
+<p-steps [(activeIndex)]="activeIndex" [model]="steps" statusTemplate="statusTemplate" orientation="vertical" (click)="onStepClick($event)">
+  <ng-template let-step let-index="index" pTemplate="title">
+    <div class="step-title">
+      <i class="step-icon" [ngClass]="{'pi-check': step.completed, 'pi-minus': step.skipped, 'pi-circle-on': !(step.completed || step.skipped)}"></i>
+      <h2>{{step.title}}</h2>
+    </div>
+  </ng-template>
+  <ng-template let-step let-index="index" pTemplate="content">
+    <div class="step-content" [ngClass]="{'active': activeIndex === index}">
+      <p>{{step.text}}</p>
+      <button pButton label="Next" (click)="activeIndex = index + 1"></button>
+    </div>
+  </ng-template>
+  <ng-template #statusTemplate let-index="index">
+    <i class="step-icon" [ngClass]="{'pi-check': steps[index].completed, 'pi-minus': steps[index].skipped, 'pi-circle-on': !(steps[index].completed || steps[index].skipped)}"></i>
+  </ng-template>
+</p-steps>

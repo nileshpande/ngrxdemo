@@ -12,6 +12,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { TodoEffects } from './ngrx/todo/todo.effects';
 import { todoReducer } from './ngrx/todo/todo.reducers';
+import { StepperModule } from 'primeng/stepper';
+import { ButtonModule } from 'primeng/button';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import { todoReducer } from './ngrx/todo/todo.reducers';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ButtonModule,
+    StepperModule,
     FormsModule, 
     StoreModule.forRoot({ todos: todoReducer }),
     StoreDevtoolsModule.instrument({
