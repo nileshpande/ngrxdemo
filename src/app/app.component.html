@@ -6,7 +6,36 @@
     <app-addtodo></app-addtodo>
   </div>
 </div>
-<p-steps [(activeIndex)]="activeIndex" [model]="steps" statusTemplate="statusTemplate" orientation="vertical" (click)="onStepClick($event)">
+  
+  <ng-template matStepperIcon="skipped">
+    <mat-icon>remove_circle</mat-icon>
+  </ng-template>
+
+  
+ 
+  <mat-vertical-stepper #stepper>
+    <ng-container *ngFor="let step of steps; let i = index">
+      <mat-step [completed]="step.completed" [optional]="step.optional">
+        <ng-template></ng-template>
+        <ng-template matStepLabel>
+          <mat-icon *ngIf="step.completed">check_circle</mat-icon>
+          <mat-icon *ngIf="!step.completed && !step.skipped">donut_large</mat-icon>
+          <mat-icon *ngIf="step.skipped">remove_circle</mat-icon>
+          {{ step.label }}
+        </ng-template>
+        {{ step.content }}
+      </mat-step>
+    </ng-container>
+  </mat-vertical-stepper>
+  
+
+<div>
+  <button   mat-button (click)="nextStep()">Next</button>
+  <button   mat-button (click)="stepper.reset()">Reset</button>
+  <button mat-button (click)="skipStep()">Skip</button>
+  <button mat-button (click)="changetext(3,'avenger')" >Change</button>
+</div>
+<!-- <p-steps [(activeIndex)]="activeIndex" [model]="steps" statusTemplate="statusTemplate" orientation="vertical" (click)="onStepClick($event)">
   <ng-template let-step let-index="index" pTemplate="title">
     <div class="step-title">
       <i class="step-icon" [ngClass]="{'pi-check': step.completed, 'pi-minus': step.skipped, 'pi-circle-on': !(step.completed || step.skipped)}"></i>
@@ -22,4 +51,4 @@
   <ng-template #statusTemplate let-index="index">
     <i class="step-icon" [ngClass]="{'pi-check': steps[index].completed, 'pi-minus': steps[index].skipped, 'pi-circle-on': !(steps[index].completed || steps[index].skipped)}"></i>
   </ng-template>
-</p-steps>
+</p-steps> -->
