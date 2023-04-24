@@ -23,8 +23,10 @@
           <mat-icon *ngIf="step.skipped">remove_circle</mat-icon>
         </ng-template>
         <ng-template matStepLabel>
-          <div class="title">{{ step.label }} + {{step.skipped}} {{step.completed}}</div>
-          <div class="sub_title">{{ step.subtext }}</div>
+          <div class="title_content" >
+            <div class="title">{{ step.label }}</div>
+            <div class="sub_title">{{ step.subtext }}</div>
+          </div>
         </ng-template>
         
       </mat-step> 
