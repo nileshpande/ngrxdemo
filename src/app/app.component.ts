@@ -53,7 +53,10 @@ export class AppComponent {
     const index = this.steps.indexOf(activeStep);
     if (index < this.steps.length - 1) { 
       this.selectedIndex = this.selectedIndex+1;
+      this.steps[index].active = false;
+      this.steps[index].skipped = false;
       this.steps[index + 1].active = true;
+      this.steps[index].completed = true;
       if(this.steps[index].completed)
       {
         this.steps[index].icon = "check_circle";
@@ -74,6 +77,7 @@ export class AppComponent {
     if (index < this.steps.length - 1) {
       this.selectedIndex = this.selectedIndex+1;
       this.steps[index].skipped = true;
+      this.steps[index].active = false;
       this.steps[index + 1].active = true;
       this.steps[index].icon = "remove_cricle";
     }
