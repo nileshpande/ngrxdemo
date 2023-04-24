@@ -2,3 +2,14 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.dynamic_stepper
+{
+    .mat-vertical-stepper-content {
+        overflow: hidden;
+        outline: 0;
+        visibility: visible !important;
+        height: auto !important;
+    }
+}
