@@ -12,26 +12,33 @@
   </ng-template>
 
   
- 
-  <mat-vertical-stepper #stepper>
-    <ng-container *ngFor="let step of steps; let i = index">
-      <mat-step [completed]="step.completed" [optional]="step.optional">
-        <ng-template></ng-template>
-        <ng-template matStepLabel>
-          <mat-icon *ngIf="step.completed">check_circle</mat-icon>
-          <mat-icon *ngIf="!step.completed && !step.skipped">donut_large</mat-icon>
+  {{selectedIndex}}
+  <mat-stepper #stepper [orientation]="'vertical'" [selectedIndex]="selectedIndex"  >
+     
+      <mat-step  *ngFor="let step of steps; let i = index" [stepControl]="step.formgroup" [state]= "step.icon" >
+        <ng-template matStepperIcon="number"> 
+          <mat-icon >donut_large</mat-icon> 
+          <mat-icon *ngIf="step.active">remove_circle</mat-icon>
+          <mat-icon *ngIf="step.completed">remove_circle</mat-icon>
           <mat-icon *ngIf="step.skipped">remove_circle</mat-icon>
-          {{ step.label }}
         </ng-template>
-        {{ step.content }}
-      </mat-step>
-    </ng-container>
-  </mat-vertical-stepper>
+        <ng-template matStepperIcon="skipped">
+          <mat-icon *ngIf="step.active">remove_circle</mat-icon>
+          <mat-icon>donut_large</mat-icon>
+          <mat-icon *ngIf="step.skipped">remove_circle</mat-icon>
+        </ng-template>
+        <ng-template matStepLabel>
+          <div class="title">{{ step.label }} + {{step.skipped}} {{step.completed}}</div>
+          <div class="sub_title">{{ step.subtext }}</div>
+        </ng-template>
+        
+      </mat-step> 
+  </mat-stepper>
   
 
 <div>
   <button   mat-button (click)="nextStep()">Next</button>
-  <button   mat-button (click)="stepper.reset()">Reset</button>
+  <button   mat-button (click)="completenext()">complete next</button>
   <button mat-button (click)="skipStep()">Skip</button>
   <button mat-button (click)="changetext(3,'avenger')" >Change</button>
 </div>
